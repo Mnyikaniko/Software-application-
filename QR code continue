@@ -1,0 +1,33 @@
+#include <cstdio>
+
+
+
+
+
+int main() {
+
+    const char* text = "Hello, this is a QR Code!";
+
+    QRcode* qr = QRcode_encodeString(text, 0, QR_ECLEVEL_L, QR_MODE_8, 1);
+
+
+
+    if (qr != nullptr) {
+
+        for (int y = 0; y < qr->width; y++) {
+
+            for (int x = 0; x < qr->width; x++) {
+
+                if (qr->data[y * qr->width + x] & 1) {
+
+                    printf("##");
+
+                } else {
+
+                    printf("  ");
+
+                }
+
+            }
+
+            printf("\n");
