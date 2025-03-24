@@ -1,0 +1,21 @@
+#include <iostream>
+using namespace std;
+
+void calculator() {
+    char operation;
+    double num1, num2, result;
+
+    cout << "Simple Calculator in C++\n";
+    cout << "Select operation (+, -, *, /): ";
+    cin >> operation;
+
+    cout << "Enter first number: ";
+    cin >> num1;
+    cout << "Enter second number: ";
+    cin >> num2;
+
+    switch (operation) {
+        case '+':
+            result = num1 + num2;
+            cout << "Result: " << num1 << " + " << num2 << " = " << result << endl;
+            break;
