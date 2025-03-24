@@ -50,4 +50,4 @@ int main() {
 
     cout << "Calculator closed. Thank you!\n";
     return 0;
-}
+} //full code that run on dev cpp
