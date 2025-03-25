@@ -1,0 +1,60 @@
+#include <iostream>
+using namespace std;
+
+class BankAccount {
+private:
+    double balance;
+
+public:
+    BankAccount() { balance = 0; } // Initialize balance to 0
+
+    void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            cout << "Deposit successful! New balance: $" << balance << endl;
+        } else {
+            cout << "Invalid amount! Enter a positive number.\n";
+        }
+    }
+
+    void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+            cout << "Withdrawal successful! New balance: $" << balance << endl;
+        } else if (amount > balance) {
+            cout << "Insufficient funds! Your balance is $" << balance << endl;
+        } else {
+            cout << "Invalid amount! Enter a positive number.\n";
+        }
+    }
+
+    void checkBalance() {
+        cout << "Your current balance is: $" << balance << endl;
+    }
+};
+
+int main() {
+    BankAccount account;
+    int choice;
+    double amount;
+
+    do {
+        cout << "\n=== Simple Banking System ===\n";
+        cout << "1. Check Balance\n";
+        cout << "2. Deposit Money\n";
+        cout << "3. Withdraw Money\n";
+        cout << "4. Exit\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1:
+                account.checkBalance();
+                break;
+            case 2:
+                cout << "Enter deposit amount: ";
+                cin >> amount;
+                account.deposit(amount);
+                break;
+            case 3:
+                cout << "Enter withdrawal amount: ";
