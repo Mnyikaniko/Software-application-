@@ -7,7 +7,7 @@ body {
 }
 
 .container {
-  margin-top: 50px;
+  margin-top: 50px; //common 
 }
 
 input, button {
