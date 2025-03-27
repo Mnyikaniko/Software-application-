@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstdlib> // For rand() and srand()
 #include <ctime>   // For time()
-using namespace std;
+using namespace std;//for prototyping 
 
 int main() {
     srand(time(0)); // Seed random number generator
