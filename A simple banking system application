@@ -1,7 +1,7 @@
 #include <iostream> //the full code banking 
 using namespace std;
 
-class BankAccount { 
+class BankAccount {   
 private:
     double balance;
 
