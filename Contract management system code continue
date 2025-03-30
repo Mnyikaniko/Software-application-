@@ -1,0 +1,120 @@
+#include <iostream>
+#include <fstream>  // For file handling
+#include <vector>
+#include <sstream>
+
+using namespace std;
+
+struct Contact {
+    string name;
+    string phone;
+    string email;
+};
+
+// Function to add a new contact
+void addContact() {
+    Contact contact;
+    cout << "Enter Name: ";
+    cin.ignore();
+    getline(cin, contact.name);
+    cout << "Enter Phone Number: ";
+    cin >> contact.phone;
+    cout << "Enter Email: ";
+    cin >> contact.email;
+
+    ofstream file("contacts.txt", ios::app);
+    if (file.is_open()) {
+        file << contact.name << "," << contact.phone << "," << contact.email << "\n";
+        file.close();
+        cout << "Contact added successfully!\n";
+    } else {
+        cout << "Error saving contact.\n";
+    }
+}
+
+// Function to display all contacts
+void viewContacts() {
+    ifstream file("contacts.txt");
+    string line;
+    cout << "\n--- Contact List ---\n";
+    while (getline(file, line)) {
+        stringstream ss(line);
+        string name, phone, email;
+        getline(ss, name, ',');
+        getline(ss, phone, ',');
+        getline(ss, email, ',');
+        cout << "Name: " << name << "\nPhone: " << phone << "\nEmail: " << email << "\n----------------------\n";
+    }
+    file.close();
+}
+
+// Function to search for a contact
+void searchContact() {
+    string searchName;
+    cout << "Enter name to search: ";
+    cin.ignore();
+    getline(cin, searchName);
+
+    ifstream file("contacts.txt");
+    string line;
+    bool found = false;
+    while (getline(file, line)) {
+        stringstream ss(line);
+        string name, phone, email;
+        getline(ss, name, ',');
+        getline(ss, phone, ',');
+        getline(ss, email, ',');
+
+        if (name == searchName) {
+            cout << "\nContact Found!\n";
+            cout << "Name: " << name << "\nPhone: " << phone << "\nEmail: " << email << "\n";
+            found = true;
+            break;
+        }
+    }
+    file.close();
+    if (!found) cout << "Contact not found!\n";
+}
+
+// Function to delete a contact
+void deleteContact() {
+    string deleteName;
+    cout << "Enter name of contact to delete: ";
+    cin.ignore();
+    getline(cin, deleteName);
+
+    ifstream file("contacts.txt");
+    vector<string> contacts;
+    string line;
+    bool deleted = false;
+
+    while (getline(file, line)) {
+        stringstream ss(line);
+        string name;
+        getline(ss, name, ',');
+
+        if (name != deleteName) {
+            contacts.push_back(line);
+        } else {
+            deleted = true;
+        }
+    }
+    file.close();
+
+    ofstream outFile("contacts.txt");
+    for (const auto &contact : contacts) {
+        outFile << contact << "\n";
+    }
+    outFile.close();
+
+    if (deleted) {
+        cout << "Contact deleted successfully!\n";
+    } else {
+        cout << "Contact not found!\n";
+    }
+}
+
+int main() {
+    int choice;
+    do {
+        cout << "\n=== Contact Management System ===\n";
