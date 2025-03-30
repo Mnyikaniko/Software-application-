@@ -1,0 +1,10 @@
+#include <iostream>
+#include <cstdlib> // For rand() and srand()
+#include <ctime>   // For time()
+using namespace std;
+
+// Function to get the computer's choice
+string getComputerChoice() {
+    string choices[] = {"Rock", "Paper", "Scissors"};
+    return choices[rand() % 3]; // Randomly select Rock, Paper, or Scissors
+}
