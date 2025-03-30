@@ -1,0 +1,58 @@
+#include <iostream>
+#include <cstdlib> // For rand() and srand()
+#include <ctime>   // For time()
+using namespace std;
+
+// Function to get the computer's choice
+string getComputerChoice() {
+    string choices[] = {"Rock", "Paper", "Scissors"};
+    return choices[rand() % 3]; // Randomly select Rock, Paper, or Scissors
+}
+
+// Function to determine the winner
+string determineWinner(string userChoice, string computerChoice) {
+    if (userChoice == computerChoice) {
+        return "It's a tie!";
+    } else if ((userChoice == "Rock" && computerChoice == "Scissors") ||
+               (userChoice == "Paper" && computerChoice == "Rock") ||
+               (userChoice == "Scissors" && computerChoice == "Paper")) {
+        return "You win!";
+    } else {
+        return "Computer wins!";
+    }
+}
+
+int main() {
+    srand(time(0)); // Seed random number generator
+    string userChoice, computerChoice;
+    char playAgain;
+
+    cout << "Welcome to Rock, Paper, Scissors Game!\n";
+
+    do {
+        cout << "\nEnter your choice (Rock, Paper, Scissors): ";
+        cin >> userChoice;
+
+        // Convert user input to match format
+        for (char &c : userChoice) {
+            c = tolower(c);
+        }
+        if (userChoice == "rock") userChoice = "Rock";
+        else if (userChoice == "paper") userChoice = "Paper";
+        else if (userChoice == "scissors") userChoice = "Scissors";
+        else {
+            cout << "Invalid choice! Please enter Rock, Paper, or Scissors.\n";
+            continue;
+        }
+
+        computerChoice = getComputerChoice();
+        cout << "Computer chose: " << computerChoice << endl;
+        cout << determineWinner(userChoice, computerChoice) << endl;
+
+        cout << "Do you want to play again? (y/n): ";
+        cin >> playAgain;
+    } while (playAgain == 'y' || playAgain == 'Y');
+
+    cout << "Thanks for playing! Goodbye.\n";
+    return 0;
+}
