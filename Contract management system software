@@ -3,7 +3,7 @@
 #include <vector>
 #include <sstream>
 
-using namespace std;
+using namespace std; //
 
 struct Contact {
     string name;
