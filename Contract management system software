@@ -29,7 +29,7 @@ void addContact() {
         cout << "Contact added successfully!\n";
     } else {
         cout << "Error saving contact.\n";
-    }
+    }  
 }
 
 // Function to display all contacts
