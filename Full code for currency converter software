@@ -1,5 +1,5 @@
 #include <iostream>
-using namespace std;
+using namespace std;  
 
 // Function to convert currency
 double convertCurrency(double amount, double rate) {
