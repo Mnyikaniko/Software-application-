@@ -14,7 +14,7 @@ int main() {
     float totalMarks = 0, marks;
 
     cout << "Enter the number of subjects: ";
-    cin >> numSubjects;
+    cin >> numSubjects;   
 
     for (int i = 1; i <= numSubjects; i++) {
         cout << "Enter marks for subject " << i << " (out of 100): ";
