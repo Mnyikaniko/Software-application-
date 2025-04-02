@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+char calculateGrade(float average) {
+    if (average >= 90) return 'A';
+    else if (average >= 80) return 'B';
+    else if (average >= 70) return 'C';
+    else if (average >= 60) return 'D';
+    else return 'F';
+}
+
+int main() {
+    int numSubjects;
+    float totalMarks = 0, marks;
+
+    cout << "Enter the number of subjects: ";
+    cin >> numSubjects;
+
+    for (int i = 1; i <= numSubjects; i++) {
+        cout << "Enter marks for subject " << i << " (out of 100): ";
+        cin >> marks;
+        if (marks < 0 || marks > 100) {
+            cout << "Invalid marks! Enter a number between 0 and 100.\n";
+            i--; // Repeat the input for the same subject
+        } else {
+            totalMarks += marks;
+        }
+    }
+
+    float average = totalMarks / numSubjects;
+    char grade = calculateGrade(average);
+
+    cout << "\n=== Student Grade Report ===\n";
+    cout << "Total Marks: " << totalMarks << "/" << (numSubjects * 100) << endl;
+    cout << "Average Percentage: " << average << "%" << endl;
+    cout << "Final Grade: " << grade << endl;
+
+    return 0;
+}
