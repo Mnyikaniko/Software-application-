@@ -1,5 +1,5 @@
   #include <iostream>  //comment 
-using namespace std;
+   using namespace std;
 
 char calculateGrade(float average) {
     if (average >= 90) return 'A';
