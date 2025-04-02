@@ -1,0 +1,10 @@
+#include <iostream>
+using namespace std;
+
+// Function to convert currency
+double convertCurrency(double amount, double rate) {
+    return amount * rate;
+}
+
+int main() {
+    int choice;
