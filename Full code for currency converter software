@@ -1,0 +1,48 @@
+#include <iostream>
+using namespace std;
+
+// Function to convert currency
+double convertCurrency(double amount, double rate) {
+    return amount * rate;
+}
+
+int main() {
+    int choice;
+    double amount;
+    
+    // Exchange rates (Example: 1 USD = X TZS, 1 EUR = Y USD, etc.)
+    const double USD_TO_TZS = 2500.0;
+    const double TZS_TO_USD = 1 / USD_TO_TZS;
+    const double USD_TO_EUR = 0.92;
+    const double EUR_TO_USD = 1 / USD_TO_EUR;
+
+    cout << "=== Currency Converter ===\n";
+    cout << "1. USD to TZS\n";
+    cout << "2. TZS to USD\n";
+    cout << "3. USD to EUR\n";
+    cout << "4. EUR to USD\n";
+    cout << "Enter your choice: ";
+    cin >> choice;
+
+    cout << "Enter the amount: ";
+    cin >> amount;
+
+    switch (choice) {
+        case 1:
+            cout << amount << " USD = " << convertCurrency(amount, USD_TO_TZS) << " TZS\n";
+            break;
+        case 2:
+            cout << amount << " TZS = " << convertCurrency(amount, TZS_TO_USD) << " USD\n";
+            break;
+        case 3:
+            cout << amount << " USD = " << convertCurrency(amount, USD_TO_EUR) << " EUR\n";
+            break;
+        case 4:
+            cout << amount << " EUR = " << convertCurrency(amount, EUR_TO_USD) << " USD\n";
+            break;
+        default:
+            cout << "Invalid choice! Please select a valid option.\n";
+    }
+
+    return 0;
+}
