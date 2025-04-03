@@ -1,0 +1,75 @@
+#include <iostream>
+using namespace std;
+
+// Function to convert kilometers to miles
+double kmToMiles(double km) {
+    return km * 0.621371;
+}
+
+// Function to convert miles to kilometers
+double milesToKm(double miles) {
+    return miles / 0.621371;
+}
+
+// Function to convert Celsius to Fahrenheit
+double celsiusToFahrenheit(double celsius) {
+    return (celsius * 9/5) + 32;
+}
+
+// Function to convert Fahrenheit to Celsius
+double fahrenheitToCelsius(double fahrenheit) {
+    return (fahrenheit - 32) * 5/9;
+}
+
+// Function to convert kilograms to pounds
+double kgToPounds(double kg) {
+    return kg * 2.20462;
+}
+
+// Function to convert pounds to kilograms
+double poundsToKg(double pounds) {
+    return pounds / 2.20462;
+}
+
+int main() {
+    int choice;
+    double value;
+
+    cout << "=== Unit Converter ===\n";
+    cout << "1. Kilometers to Miles\n";
+    cout << "2. Miles to Kilometers\n";
+    cout << "3. Celsius to Fahrenheit\n";
+    cout << "4. Fahrenheit to Celsius\n";
+    cout << "5. Kilograms to Pounds\n";
+    cout << "6. Pounds to Kilograms\n";
+    cout << "Enter your choice: ";
+    cin >> choice;
+
+    cout << "Enter the value to convert: ";
+    cin >> value;
+
+    switch (choice) {
+        case 1:
+            cout << value << " km = " << kmToMiles(value) << " miles\n";
+            break;
+        case 2:
+            cout << value << " miles = " << milesToKm(value) << " km\n";
+            break;
+        case 3:
+            cout << value << " °C = " << celsiusToFahrenheit(value) << " °F\n";
+            break;
+        case 4:
+            cout << value << " °F = " << fahrenheitToCelsius(value) << " °C\n";
+            break;
+        case 5:
+            cout << value << " kg = " << kgToPounds(value) << " lbs\n";
+            break;
+        case 6:
+            cout << value << " lbs = " << poundsToKg(value) << " kg\n";
+            break;
+        default:
+            cout << "Invalid choice! Please select a valid option.\n";
+    }
+
+    return 0;
+}
