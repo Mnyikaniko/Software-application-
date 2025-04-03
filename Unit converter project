@@ -1,5 +1,5 @@
    #include <iostream> 
-    using namespace std;
+    using namespace std; 
 
 // Function to convert kilometers to miles
 double kmToMiles(double km) {
@@ -32,7 +32,7 @@ double poundsToKg(double pounds) {
 }
 
 int main() {
-    int choice;
+    int choice;//function to variable declaration 
     double value;
 
     cout << "=== Unit Converter ===\n";
