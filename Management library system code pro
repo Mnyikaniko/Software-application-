@@ -1,0 +1,79 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+struct Book {
+    int id;
+    char title[50];
+    char author[50];
+};
+
+void addBook() {
+    Book book;
+    ofstream file("library.dat", ios::binary | ios::app);
+    
+    cout << "Enter Book ID: ";
+    cin >> book.id;
+    cin.ignore();
+    cout << "Enter Book Title: ";
+    cin.getline(book.title, 50);
+    cout << "Enter Author Name: ";
+    cin.getline(book.author, 50);
+
+    file.write((char*)&book, sizeof(book));
+    file.close();
+
+    cout << "Book added successfully.\n";
+}
+
+void displayBooks() {
+    Book book;
+    ifstream file("library.dat", ios::binary);
+
+    cout << "\n=== All Books ===\n";
+    while (file.read((char*)&book, sizeof(book))) {
+        cout << "ID: " << book.id << "\nTitle: " << book.title << "\nAuthor: " << book.author << "\n\n";
+    }
+    file.close();
+}
+
+void searchBook() {
+    Book book;
+    int id;
+    bool found = false;
+    ifstream file("library.dat", ios::binary);
+
+    cout << "Enter Book ID to search: ";
+    cin >> id;
+
+    while (file.read((char*)&book, sizeof(book))) {
+        if (book.id == id) {
+            cout << "Book Found!\n";
+            cout << "ID: " << book.id << "\nTitle: " << book.title << "\nAuthor: " << book.author << "\n";
+            found = true;
+            break;
+        }
+    }
+
+    if (!found)
+        cout << "Book not found.\n";
+
+    file.close();
+}
+
+void deleteBook() {
+    Book book;
+    int id;
+    bool found = false;
+    ifstream file("library.dat", ios::binary);
+    ofstream temp("temp.dat", ios::binary);
+
+    cout << "Enter Book ID to delete: ";
+    cin >> id;
+
+    while (file.read((char*)&book, sizeof(book))) {
+        if (book.id != id)
+            temp.write((char*)&book, sizeof(book));
+        else
+            found = true;
+    }
