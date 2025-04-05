@@ -1,0 +1,112 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+struct Book {
+    int id;
+    char title[50];
+    char author[50];
+};
+
+void addBook() {
+    Book book;
+    ofstream file("library.dat", ios::binary | ios::app);
+    
+    cout << "Enter Book ID: ";
+    cin >> book.id;
+    cin.ignore();
+    cout << "Enter Book Title: ";
+    cin.getline(book.title, 50);
+    cout << "Enter Author Name: ";
+    cin.getline(book.author, 50);
+
+    file.write((char*)&book, sizeof(book));
+    file.close();
+
+    cout << "Book added successfully.\n";
+}
+
+void displayBooks() {
+    Book book;
+    ifstream file("library.dat", ios::binary);
+
+    cout << "\n=== All Books ===\n";
+    while (file.read((char*)&book, sizeof(book))) {
+        cout << "ID: " << book.id << "\nTitle: " << book.title << "\nAuthor: " << book.author << "\n\n";
+    }
+    file.close();
+}
+
+void searchBook() {
+    Book book;
+    int id;
+    bool found = false;
+    ifstream file("library.dat", ios::binary);
+
+    cout << "Enter Book ID to search: ";
+    cin >> id;
+
+    while (file.read((char*)&book, sizeof(book))) {
+        if (book.id == id) {
+            cout << "Book Found!\n";
+            cout << "ID: " << book.id << "\nTitle: " << book.title << "\nAuthor: " << book.author << "\n";
+            found = true;
+            break;
+        }
+    }
+
+    if (!found)
+        cout << "Book not found.\n";
+
+    file.close();
+}
+
+void deleteBook() {
+    Book book;
+    int id;
+    bool found = false;
+    ifstream file("library.dat", ios::binary);
+    ofstream temp("temp.dat", ios::binary);
+
+    cout << "Enter Book ID to delete: ";
+    cin >> id;
+
+    while (file.read((char*)&book, sizeof(book))) {
+        if (book.id != id)
+            temp.write((char*)&book, sizeof(book));
+        else
+            found = true;
+    }
+
+    file.close();
+    temp.close();
+
+    remove("library.dat");
+    rename("temp.dat", "library.dat");
+
+    if (found)
+        cout << "Book deleted successfully.\n";
+    else
+        cout << "Book not found.\n";
+}
+
+int main() {
+    int choice;
+    do {
+        cout << "\n=== Library Management System ===\n";
+        cout << "1. Add Book\n2. Display Books\n3. Search Book\n4. Delete Book\n5. Exit\n";
+        cout << "Enter choice: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1: addBook(); break;
+            case 2: displayBooks(); break;
+            case 3: searchBook(); break;
+            case 4: deleteBook(); break;
+            case 5: cout << "Exiting program.\n"; break;
+            default: cout << "Invalid choice!\n";
+        }
+    } while (choice != 5);
+
+    return 0;
+}
