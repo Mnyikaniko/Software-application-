@@ -1,5 +1,5 @@
 #include <iostream> // comment 
-using namespace std; 
+using namespace std;  
 
 char board[3][3];
 char currentPlayer = 'X';
