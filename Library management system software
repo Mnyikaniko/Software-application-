@@ -1,0 +1,20 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+struct Book {
+    int id;
+    char title[50];
+    char author[50];
+};
+
+void addBook() {
+    Book book;
+    ofstream file("library.dat", ios::binary | ios::app);
+    
+    cout << "Enter Book ID: ";
+    cin >> book.id;
+    cin.ignore();
+    cout << "Enter Book Title: ";
+    cin.getline(book.title, 50);
+    cout << "Enter Author Name: "
