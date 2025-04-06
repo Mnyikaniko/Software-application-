@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+struct Employee {
+    int id;
+    char name[50];
+    float basicSalary;
+    float allowance;
+    float tax;
+    float grossSalary;
+    float netSalary;
+};
+
+void calculateSalary(Employee &emp) {
+    emp.grossSalary = emp.basicSalary + emp.allowance;
+    emp.netSalary = emp.grossSalary - emp.tax;
+}
+
+int main() {
+    Employee emp;
+
+    cout << "=== Employee Payroll System ===\n";
+    cout << "Enter Employee ID: ";
+    cin >> emp.id;
+    cin.ignore();
+    cout << "Enter Employee Name: ";
+    cin.getline(emp.name, 50);
+    cout << "Enter Basic Salary: ";
+    cin >> emp.basicSalary;
+    cout << "Enter Allowance: ";
