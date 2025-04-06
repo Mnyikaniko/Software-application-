@@ -1,0 +1,10 @@
+#include <iostream>
+using namespace std;
+
+struct Employee {
+    int id;
+    char name[50];
+    float basicSalary;
+    float allowance;
+    float tax;
+    float grossSalary;
