@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+struct Employee {
+    int id;
+    char name[50];
+    float basicSalary;
+    float allowance;
+    float tax;
+    float grossSalary;
+    float netSalary;
+};
+
+void calculateSalary(Employee &emp) {
+    emp.grossSalary = emp.basicSalary + emp.allowance;
+    emp.netSalary = emp.grossSalary - emp.tax;
+}
+
+int main() {
+    Employee emp;
