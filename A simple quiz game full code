@@ -1,4 +1,4 @@
-#include <iostream>// simple quiz game 
+#include <iostream> // simple quiz game 
 using namespace std;
 
 int main() {
