@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    string questions[3] = {
+        "1. What is the capital of France?\n a) Paris\n b) Rome\n c) Berlin\n d) Madrid",
+        "2. Which planet is known as the Red Planet?\n a) Earth\n b) Mars\n c) Jupiter\n d) Venus",
+        "3. Who wrote 'Hamlet'?\n a) William Wordsworth\n b) Charles Dickens\n c) William Shakespeare\n d) Mark Twain"
+    };
+
+    char answers[3] = {'a', 'b', 'c'};
+    char userAnswer;
+    int score = 0;
+
+    cout << "=== Simple Quiz Game ===\n";
+
+    for (int i = 0; i < 3; i++) {
+        cout << "\n" << questions[i] << "\n";
+        cout << "Your answer: ";
+        cin >> userAnswer;
+
+        if (tolower(userAnswer) == answers[i]) {
+            cout << "Correct!\n";
+            score++;
+        } else {
+            cout << "Wrong! Correct answer is: " << answers[i] << "\n";
+        }
+    }
+
+    cout << "\nYour final score is: " << score << "/3\n";
+
+    return 0;
+}
