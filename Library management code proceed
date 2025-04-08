@@ -21,7 +21,7 @@ void addBook() {
     cin.getline(book.author, 50);
 
     file.write((char*)&book, sizeof(book));
-    file.close();
+    file.close();//code creative 
 
     cout << "Book added successfully.\n";
 }
