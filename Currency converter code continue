@@ -36,5 +36,5 @@ int main() {
             break;
         case 3:
             cout << amount << " USD = " << convertCurrency(amount, USD_TO_EUR) << " EUR\n";
-            break;
+            break;  
         case 4:
