@@ -1,0 +1,29 @@
+#include <iostream>
+#include <ctime>
+#include <thread>
+#include <chrono>
+using namespace std;
+
+int main() {
+    int alarmHour, alarmMinute;
+    cout << "=== Alarm Clock ===\n";
+    cout << "Set Alarm Hour (0-23): ";
+    cin >> alarmHour;
+    cout << "Set Alarm Minute (0-59): ";
+    cin >> alarmMinute;
+
+    cout << "Alarm is set for " << alarmHour << ":" << (alarmMinute < 10 ? "0" : "") << alarmMinute << "\n";
+
+    while (true) {
+        time_t now = time(0);
+        tm *ltm = localtime(&now);
+
+        int currentHour = ltm->tm_hour;
+        int currentMinute = ltm->tm_min;
+
+        if (currentHour == alarmHour && currentMinute == alarmMinute) {
+            cout << "\n*** Alarm Ringing! Wake up! ***\n";
+            break;
+        }
+
+        this_thread::sleep_for(chrono::seconds(30)); // check every 30 seconds
