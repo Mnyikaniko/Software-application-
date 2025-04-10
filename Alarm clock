@@ -1,0 +1,10 @@
+#include <iostream>
+#include <ctime>
+#include <thread>
+#include <chrono>
+using namespace std;
+
+int main() {
+    int alarmHour, alarmMinute;
+    cout << "=== Alarm Clock ===\n";
+    cout << "Set Alarm Hour (0-23): ";
