@@ -10,7 +10,7 @@ int main() {
     cin >> weight;
 
     cout << "Enter your height in meters: ";
-    cin >> height;
+    cin >> height; // comments 
 
     bmi = weight / (height * height);
 
