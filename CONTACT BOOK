@@ -29,7 +29,7 @@ void addContact() {
 void viewContacts() {
     if (totalContacts == 0) {
         cout << "No contacts to display.\n";
-        return;
+        return; 
     }
     cout << "\n=== Contact List ===\n";
     for (int i = 0; i < totalContacts; i++) {
