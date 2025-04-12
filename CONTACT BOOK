@@ -22,7 +22,7 @@ void addContact() {
     cout << "Enter phone number: ";
     getline(cin, contacts[totalContacts].phone);
 
-    totalContacts++;
+    totalContacts++;  
     cout << "Contact added successfully!\n";
 }
 
