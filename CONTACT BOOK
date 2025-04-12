@@ -1,0 +1,161 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+struct Contact {
+    string name;
+    string phone;
+};
+
+const int MAX_CONTACTS = 100;
+Contact contacts[MAX_CONTACTS];
+int totalContacts = 0;
+
+void addContact() {
+    if (totalContacts >= MAX_CONTACTS) {
+        cout << "Contact list is full!" << endl;
+        return;
+    }
+    cout << "\nEnter name: ";
+    cin.ignore();
+    getline(cin, contacts[totalContacts].name);
+    cout << "Enter phone number: ";
+    getline(cin, contacts[totalContacts].phone);
+
+    totalContacts++;
+    cout << "Contact added successfully!\n";
+}
+
+void viewContacts() {
+    if (totalContacts == 0) {
+        cout << "No contacts to display.\n";
+        return;
+    }
+    cout << "\n=== Contact List ===\n";
+    for (int i = 0; i < totalContacts; i++) {
+        cout << i + 1 << ". " << contacts[i].name << " - " << contacts[i].phone << endl;
+    }
+}
+
+void searchContact() {
+    string searchName;
+    cout << "\nEnter name to search: ";
+    cin.ignore();
+    getline(cin, searchName);
+
+    bool found = false;
+    for (int i = 0; i < totalContacts; i++) {
+        if (contacts[i].name == searchName) {
+            cout << "Found: " << contacts[i].name << " - " << contacts[i].phone << endl;
+            found = true;
+            break;
+        }
+    }
+    if (!found) {
+        cout << "Contact not found.\n";
+    }
+}
+
+int main() {
+    int choice;
+
+    do {
+        cout << "\n=== Contact Book Menu ===\n";
+        cout << "1. Add Contact\n";
+        cout << "2. View Contacts\n";
+        cout << "3. Search Contact\n";
+        cout << "4. Exit\n";
+        cout << "Choose an option: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1: addContact(); break;
+            case 2: viewContacts(); break;
+            case 3: searchContact(); break;
+            case 4: cout << "Goodbye!\n"; break;
+            default: cout << "Invalid choice!\n";
+        }
+    } while (choice != 4);
+
+    return 0;
+}#include <iostream>
+#include <string>
+using namespace std;
+
+struct Contact {
+    string name;
+    string phone;
+};
+
+const int MAX_CONTACTS = 100;
+Contact contacts[MAX_CONTACTS];
+int totalContacts = 0;
+
+void addContact() {
+    if (totalContacts >= MAX_CONTACTS) {
+        cout << "Contact list is full!" << endl;
+        return;
+    }
+    cout << "\nEnter name: ";
+    cin.ignore();
+    getline(cin, contacts[totalContacts].name);
+    cout << "Enter phone number: ";
+    getline(cin, contacts[totalContacts].phone);
+
+    totalContacts++;
+    cout << "Contact added successfully!\n";
+}
+
+void viewContacts() {
+    if (totalContacts == 0) {
+        cout << "No contacts to display.\n";
+        return;
+    }
+    cout << "\n=== Contact List ===\n";
+    for (int i = 0; i < totalContacts; i++) {
+        cout << i + 1 << ". " << contacts[i].name << " - " << contacts[i].phone << endl;
+    }
+}
+
+void searchContact() {
+    string searchName;
+    cout << "\nEnter name to search: ";
+    cin.ignore();
+    getline(cin, searchName);
+
+    bool found = false;
+    for (int i = 0; i < totalContacts; i++) {
+        if (contacts[i].name == searchName) {
+            cout << "Found: " << contacts[i].name << " - " << contacts[i].phone << endl;
+            found = true;
+            break;
+        }
+    }
+    if (!found) {
+        cout << "Contact not found.\n";
+    }
+}
+
+int main() {
+    int choice;
+
+    do {
+        cout << "\n=== Contact Book Menu ===\n";
+        cout << "1. Add Contact\n";
+        cout << "2. View Contacts\n";
+        cout << "3. Search Contact\n";
+        cout << "4. Exit\n";
+        cout << "Choose an option: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1: addContact(); break;
+            case 2: viewContacts(); break;
+            case 3: searchContact(); break;
+            case 4: cout << "Goodbye!\n"; break;
+            default: cout << "Invalid choice!\n";
+        }
+    } while (choice != 4);
+
+    return 0;
+}
