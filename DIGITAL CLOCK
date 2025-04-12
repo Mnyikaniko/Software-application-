@@ -1,0 +1,43 @@
+#include <iostream>
+#include <iomanip>
+#include <ctime>
+#include <chrono>
+#include <thread>
+
+using namespace std;
+
+void displayTime() {
+    while (true) {
+        // Get current system time
+        time_t now = time(0);
+        tm *localTime = localtime(&now);
+
+        int hour = localTime->tm_hour;
+        int minute = localTime->tm_min;
+        int second = localTime->tm_sec;
+
+        // Clear screen (Windows)
+        system("cls");
+
+        // Display digital clock
+        cout << "==========================" << endl;
+        cout << "      DIGITAL CLOCK       " << endl;
+        cout << "==========================" << endl;
+        cout << "Time: ";
+
+        // Format and display time in hh:mm:ss
+        cout << setfill('0') << setw(2) << hour << ":"
+             << setfill('0') << setw(2) << minute << ":"
+             << setfill('0') << setw(2) << second << endl;
+
+        cout << "==========================" << endl;
+
+        // Wait for 1 second
+        this_thread::sleep_for(chrono::seconds(1));
+    }
+}
+
+int main() {
+    displayTime();
+    return 0;
+}
