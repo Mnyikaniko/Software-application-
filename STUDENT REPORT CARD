@@ -6,7 +6,7 @@ struct Student {
     string name;
     int roll;
     float marks[5];
-    float total;
+    float total;  
     float average;
     char grade;// continue 
 };
