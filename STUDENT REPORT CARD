@@ -40,7 +40,7 @@ int main() {
         cin >> s.marks[i];
     }
 
-    calculate(s);
+    calculate(s);  
 
     cout << "\n=== Report Card ===\n";
     cout << "Name: " << s.name << "\n";
