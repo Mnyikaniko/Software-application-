@@ -1,5 +1,5 @@
 #include <iostream>// into code
-using namespace std;  
+using namespace std;    
 
 void showMenu() {
     cout << "\n=== Currency Converter ===\n";
