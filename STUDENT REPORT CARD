@@ -8,7 +8,7 @@ struct Student {
     float marks[5];
     float total;
     float average;
-    char grade;
+    char grade;// continue 
 };
 
 void calculate(Student &s) {
