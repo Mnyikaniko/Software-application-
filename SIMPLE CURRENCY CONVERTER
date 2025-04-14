@@ -1,0 +1,59 @@
+#include <iostream>
+using namespace std;
+
+void showMenu() {
+    cout << "\n=== Currency Converter ===\n";
+    cout << "1. TZS to USD\n";
+    cout << "2. USD to TZS\n";
+    cout << "3. TZS to EUR\n";
+    cout << "4. EUR to TZS\n";
+    cout << "5. Exit\n";
+    cout << "Choose an option: ";
+}
+
+int main() {
+    int choice;
+    double amount, result;
+    const double USD_RATE = 2500.0;  // Example: 1 USD = 2500 TZS
+    const double EUR_RATE = 2700.0;  // Example: 1 EUR = 2700 TZS
+
+    do {
+        showMenu();
+        cin >> choice;
+
+        switch (choice) {
+            case 1:
+                cout << "Enter amount in TZS: ";
+                cin >> amount;
+                result = amount / USD_RATE;
+                cout << "Equivalent in USD: " << result << endl;
+                break;
+            case 2:
+                cout << "Enter amount in USD: ";
+                cin >> amount;
+                result = amount * USD_RATE;
+                cout << "Equivalent in TZS: " << result << endl;
+                break;
+            case 3:
+                cout << "Enter amount in TZS: ";
+                cin >> amount;
+                result = amount / EUR_RATE;
+                cout << "Equivalent in EUR: " << result << endl;
+                break;
+            case 4:
+                cout << "Enter amount in EUR: ";
+                cin >> amount;
+                result = amount * EUR_RATE;
+                cout << "Equivalent in TZS: " << result << endl;
+                break;
+            case 5:
+                cout << "Exiting... Thank you!" << endl;
+                break;
+            default:
+                cout << "Invalid option. Try again.\n";
+        }
+
+    } while (choice != 5);
+
+    return 0;
+}
