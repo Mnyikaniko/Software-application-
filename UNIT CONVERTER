@@ -29,7 +29,7 @@ void temperatureConverter() {
 }
 
 int main() {
-    int choice;
+    int choice; // inter choice 
 
     do {
         cout << "\n=== Unit Converter ===\n";
