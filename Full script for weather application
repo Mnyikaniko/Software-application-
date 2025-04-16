@@ -5,7 +5,7 @@ const searchBtn = document.getElementById('search-btn'); //
 const cityInput = document.getElementById('city-input'); //
 const cityName = document.getElementById('city-name');  
 const temperature = document.getElementById('temperature');
-const weatherCondition = document.getElementById('weather-condition');
+const weatherCondition = document.getElementById('weather-condition');  
 const weatherIcon = document.getElementById('weather-icon');
 
 searchBtn.addEventListener('click', () => {
