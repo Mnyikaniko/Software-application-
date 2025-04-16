@@ -1,0 +1,53 @@
+#include <iostream>
+using namespace std;
+
+void lengthConverter() {
+    double meters;
+    cout << "\nEnter length in meters: ";
+    cin >> meters;
+    cout << "Kilometers: " << meters / 1000 << " km\n";
+    cout << "Centimeters: " << meters * 100 << " cm\n";
+    cout << "Inches: " << meters * 39.3701 << " inches\n";
+    cout << "Feet: " << meters * 3.28084 << " feet\n";
+}
+
+void weightConverter() {
+    double kg;
+    cout << "\nEnter weight in kilograms: ";
+    cin >> kg;
+    cout << "Grams: " << kg * 1000 << " g\n";
+    cout << "Pounds: " << kg * 2.20462 << " lb\n";
+    cout << "Ounces: " << kg * 35.274 << " oz\n";
+}
+
+void temperatureConverter() {
+    double celsius;
+    cout << "\nEnter temperature in Celsius: ";
+    cin >> celsius;
+    cout << "Fahrenheit: " << (celsius * 9/5) + 32 << " °F\n";
+    cout << "Kelvin: " << celsius + 273.15 << " K\n";
+}
+
+int main() {
+    int choice;
+
+    do {
+        cout << "\n=== Unit Converter ===\n";
+        cout << "1. Length Converter\n";
+        cout << "2. Weight Converter\n";
+        cout << "3. Temperature Converter\n";
+        cout << "4. Exit\n";
+        cout << "Choose an option: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1: lengthConverter(); break;
+            case 2: weightConverter(); break;
+            case 3: temperatureConverter(); break;
+            case 4: cout << "Exiting the program.\n"; break;
+            default: cout << "Invalid choice. Try again.\n";
+        }
+    } while (choice != 4);
+
+    return 0;
+}
