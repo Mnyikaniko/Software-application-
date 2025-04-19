@@ -1,0 +1,96 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+const int MAX_BOOKS = 100;
+
+struct Book {
+    int id;
+    string title;
+    string author;
+    bool isAvailable;
+};
+
+Book library[MAX_BOOKS];
+int bookCount = 0;
+
+void addBook() {
+    if (bookCount >= MAX_BOOKS) {
+        cout << "Library is full!\n";
+        return;
+    }
+
+    Book b;
+    cout << "\nEnter Book ID: ";
+    cin >> b.id;
+    cin.ignore(); // To clear the newline character
+    cout << "Enter Book Title: ";
+    getline(cin, b.title);
+    cout << "Enter Author Name: ";
+    getline(cin, b.author);
+    b.isAvailable = true;
+
+    library[bookCount++] = b;
+    cout << "Book added successfully!\n";
+}
+
+void displayBooks() {
+    if (bookCount == 0) {
+        cout << "No books in the library.\n";
+        return;
+    }
+
+    cout << "\n=== List of Books ===\n";
+    for (int i = 0; i < bookCount; i++) {
+        cout << "ID: " << library[i].id << "\n";
+        cout << "Title: " << library[i].title << "\n";
+        cout << "Author: " << library[i].author << "\n";
+        cout << "Available: " << (library[i].isAvailable ? "Yes" : "No") << "\n";
+        cout << "-----------------------\n";
+    }
+}
+
+void searchBook() {
+    int id;
+    cout << "\nEnter Book ID to search: ";
+    cin >> id;
+
+    bool found = false;
+    for (int i = 0; i < bookCount; i++) {
+        if (library[i].id == id) {
+            cout << "Book Found:\n";
+            cout << "Title: " << library[i].title << "\n";
+            cout << "Author: " << library[i].author << "\n";
+            cout << "Available: " << (library[i].isAvailable ? "Yes" : "No") << "\n";
+            found = true;
+            break;
+        }
+    }
+
+    if (!found)
+        cout << "Book not found.\n";
+}
+
+int main() {
+    int choice;
+
+    do {
+        cout << "\n=== Library Management ===\n";
+        cout << "1. Add Book\n";
+        cout << "2. Display All Books\n";
+        cout << "3. Search Book by ID\n";
+        cout << "4. Exit\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1: addBook(); break;
+            case 2: displayBooks(); break;
+            case 3: searchBook(); break;
+            case 4: cout << "Exiting...\n"; break;
+            default: cout << "Invalid choice, try again.\n";
+        }
+    } while (choice != 4);
+
+    return 0;
+}
