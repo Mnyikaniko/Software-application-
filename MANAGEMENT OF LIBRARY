@@ -4,7 +4,7 @@ using namespace std;
 
 const int MAX_BOOKS = 100;
 
-struct Book {
+struct Book {  
     int id;
     string title;
     string author;
