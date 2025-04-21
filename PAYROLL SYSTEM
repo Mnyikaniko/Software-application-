@@ -5,7 +5,7 @@ using namespace std;
 struct Employee {
     int id;
     string name;
-    double hoursWorked;
+    double hoursWorked;  
     double ratePerHour;
     double salary;
 };
