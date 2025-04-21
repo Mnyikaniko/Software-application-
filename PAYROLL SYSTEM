@@ -1,0 +1,72 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+struct Employee {
+    int id;
+    string name;
+    double hoursWorked;
+    double ratePerHour;
+    double salary;
+};
+
+Employee employees[100];
+int employeeCount = 0;
+
+void addEmployee() {
+    Employee emp;
+    cout << "\nEnter Employee ID: ";
+    cin >> emp.id;
+    cin.ignore();
+    cout << "Enter Employee Name: ";
+    getline(cin, emp.name);
+    cout << "Enter Hours Worked: ";
+    cin >> emp.hoursWorked;
+    cout << "Enter Rate per Hour: ";
+    cin >> emp.ratePerHour;
+
+    emp.salary = emp.hoursWorked * emp.ratePerHour;
+    employees[employeeCount++] = emp;
+
+    cout << "Employee added successfully!\n";
+}
+
+void displayEmployees() {
+    if (employeeCount == 0) {
+        cout << "No employee records.\n";
+        return;
+    }
+
+    cout << "\n=== Employee Payroll List ===\n";
+    for (int i = 0; i < employeeCount; i++) {
+        cout << "ID: " << employees[i].id << "\n";
+        cout << "Name: " << employees[i].name << "\n";
+        cout << "Hours Worked: " << employees[i].hoursWorked << "\n";
+        cout << "Rate/Hour: " << employees[i].ratePerHour << "\n";
+        cout << "Salary: " << employees[i].salary << "\n";
+        cout << "--------------------------\n";
+    }
+}
+
+int main() {
+    int choice;
+
+    do {
+        cout << "\n=== Employee Payroll System ===\n";
+        cout << "1. Add Employee\n";
+        cout << "2. Display Payroll\n";
+        cout << "3. Exit\n";
+        cout << "Enter choice: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1: addEmployee(); break;
+            case 2: displayEmployees(); break;
+            case 3: cout << "Exiting system.\n"; break;
+            default: cout << "Invalid option. Try again.\n";
+        }
+
+    } while (choice != 3);
+
+    return 0;
+}
