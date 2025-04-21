@@ -2,7 +2,7 @@
 #include <ctime>
 #include <thread>
 #include <chrono>
-using namespace std;
+using namespace std;  
 
 int main() {
     int alarmHour, alarmMinute;
