@@ -1,0 +1,65 @@
+#include <iostream>
+using namespace std;
+
+int askQuestion(string question, string a, string b, string c, string d, char correctAnswer) {
+    char answer;
+    cout << "\n" << question << "\n";
+    cout << "A. " << a << "\n";
+    cout << "B. " << b << "\n";
+    cout << "C. " << c << "\n";
+    cout << "D. " << d << "\n";
+    cout << "Your answer (A/B/C/D): ";
+    cin >> answer;
+
+    if (toupper(answer) == toupper(correctAnswer)) {
+        cout << "Correct!\n";
+        return 1;
+    } else {
+        cout << "Wrong! Correct answer was " << correctAnswer << ".\n";
+        return 0;
+    }
+}
+
+int main() {
+    int score = 0;
+
+    cout << "=== Welcome to the Quiz Game ===\n";
+
+    score += askQuestion(
+        "1. What is the capital of France?",
+        "Berlin", "London", "Paris", "Madrid", 'C'
+    );
+
+    score += askQuestion(
+        "2. Which number is even?",
+        "3", "7", "10", "5", 'C'
+    );
+
+    score += askQuestion(
+        "3. Who created C++?",
+        "Dennis Ritchie", "Bjarne Stroustrup", "James Gosling", "Guido van Rossum", 'B'
+    );
+
+    score += askQuestion(
+        "4. What is 5 x 6?",
+        "30", "25", "35", "20", 'A'
+    );
+
+    score += askQuestion(
+        "5. Which is a programming language?",
+        "HTML", "Python", "CSS", "Photoshop", 'B'
+    );
+
+    cout << "\n=== Quiz Over! ===\n";
+    cout << "Your score: " << score << "/5\n";
+
+    if (score == 5) {
+        cout << "Excellent job!\n";
+    } else if (score >= 3) {
+        cout << "Good effort!\n";
+    } else {
+        cout << "Better luck next time.\n";
+    }
+
+    return 0;
+}
