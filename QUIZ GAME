@@ -48,7 +48,7 @@ int main() {
     score += askQuestion(
         "5. Which is a programming language?",
         "HTML", "Python", "CSS", "Photoshop", 'B'
-    );
+    );  
 
     cout << "\n=== Quiz Over! ===\n";
     cout << "Your score: " << score << "/5\n";
