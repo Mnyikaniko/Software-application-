@@ -9,7 +9,7 @@ int askQuestion(string question, string a, string b, string c, string d, char co
     cout << "C. " << c << "\n";
     cout << "D. " << d << "\n";
     cout << "Your answer (A/B/C/D): ";
-    cin >> answer;
+    cin >> answer;  
 
     if (toupper(answer) == toupper(correctAnswer)) {
         cout << "Correct!\n";
