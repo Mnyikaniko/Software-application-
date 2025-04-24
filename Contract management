@@ -38,7 +38,7 @@ void viewContacts() {
     string line;
     cout << "\n--- Contact List ---\n";
     while (getline(file, line)) {
-        stringstream ss(line);
+        stringstream ss(line);  
         string name, phone, email;
         getline(ss, name, ',');
         getline(ss, phone, ',');
