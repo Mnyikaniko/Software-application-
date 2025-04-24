@@ -8,7 +8,7 @@ using namespace std;
 struct Contact {
     string name;
     string phone;
-    string email;
+    string email; //
 };
 
 // Function to add a new contact
