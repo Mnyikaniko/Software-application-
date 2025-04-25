@@ -1,0 +1,70 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+void encryptFile(string filename, int key) {
+    ifstream inFile(filename);
+    ofstream outFile("encrypted.txt");
+
+    if (!inFile) {
+        cout << "Error opening input file!\n";
+        return;
+    }
+
+    char ch;
+    while (inFile.get(ch)) {
+        ch = ch + key;
+        outFile.put(ch);
+    }
+
+    inFile.close();
+    outFile.close();
+    cout << "File encrypted successfully! Saved as encrypted.txt\n";
+}
+
+void decryptFile(string filename, int key) {
+    ifstream inFile(filename);
+    ofstream outFile("decrypted.txt");
+
+    if (!inFile) {
+        cout << "Error opening input file!\n";
+        return;
+    }
+
+    char ch;
+    while (inFile.get(ch)) {
+        ch = ch - key;
+        outFile.put(ch);
+    }
+
+    inFile.close();
+    outFile.close();
+    cout << "File decrypted successfully! Saved as decrypted.txt\n";
+}
+
+int main() {
+    int choice, key;
+    string filename;
+
+    cout << "=== File Encryption Tool ===\n";
+    cout << "1. Encrypt File\n";
+    cout << "2. Decrypt File\n";
+    cout << "Enter your choice: ";
+    cin >> choice;
+    cin.ignore();
+
+    cout << "Enter filename (example: file.txt): ";
+    getline(cin, filename);
+    cout << "Enter encryption key (number): ";
+    cin >> key;
+
+    if (choice == 1) {
+        encryptFile(filename, key);
+    } else if (choice == 2) {
+        decryptFile(filename, key);
+    } else {
+        cout << "Invalid choice.\n";
+    }
+
+    return 0;
+}
