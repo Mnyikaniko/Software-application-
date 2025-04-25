@@ -49,7 +49,7 @@ int main() {
     cout << "=== File Encryption Tool ===\n";
     cout << "1. Encrypt File\n";
     cout << "2. Decrypt File\n";
-    cout << "Enter your choice: ";
+    cout << "Enter your choice: ";  
     cin >> choice;
     cin.ignore();
 
