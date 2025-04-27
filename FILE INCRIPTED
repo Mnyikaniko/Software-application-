@@ -1,4 +1,4 @@
-#include <iostream>//initialize the code protocol
+#include <iostream>//initialize the code protoco
 #include <fstream>
 using namespace std;
 
