@@ -1,4 +1,4 @@
-#include <iostream>//initialize the code prot
+#include <iostream>//initialize the code 
 #include <fstream>
 using namespace std;
 
