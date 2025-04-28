@@ -9,7 +9,7 @@ struct Contact {
 
 const int MAX_CONTACTS = 100;
 Contact contacts[MAX_CONTACTS];
-int totalContacts = 0;
+int totalContacts = 0;  
 
 void addContact() {
     if (totalContacts >= MAX_CONTACTS) {
