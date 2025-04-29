@@ -1,0 +1,36 @@
+#include <iostream>
+#include <ctime>
+using namespace std;
+
+int main() {
+    int choice;
+    time_t startTime, endTime;
+    double elapsed;
+
+    do {
+        cout << "\n=== Simple Stopwatch ===\n";
+        cout << "1. Start Stopwatch\n";
+        cout << "2. Exit\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        if (choice == 1) {
+            cout << "\nStopwatch started. Press Enter to stop...\n";
+            cin.ignore(); // Clear buffer
+            cin.get();     // Wait for Enter
+            startTime = time(0); // Get current time as start
+            cout << "Press Enter again to stop:\n";
+            cin.get();     // Wait for Enter again
+            endTime = time(0); // Get end time
+
+            elapsed = difftime(endTime, startTime);
+            cout << "Elapsed time: " << elapsed << " seconds.\n";
+        } else if (choice != 2) {
+            cout << "Invalid choice. Try again.\n";
+        }
+
+    } while (choice != 2);
+
+    cout << "Stopwatch closed.\n";
+    return 0;
+}
