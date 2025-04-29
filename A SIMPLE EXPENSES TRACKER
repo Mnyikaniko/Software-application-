@@ -8,7 +8,7 @@ struct Expense{
     double amount;
 };
 
-int main() {
+int main()  {
     vector<Expense> expenses;
     int choice;
     string desc;
