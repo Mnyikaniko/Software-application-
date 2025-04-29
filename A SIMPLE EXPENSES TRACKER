@@ -53,7 +53,7 @@ int main() {
                 cout << "Exiting Expense Tracker.\n";
                 break;
 
-            default:
+            default:  
                 cout << "Invalid choice.\n";
         }
 
