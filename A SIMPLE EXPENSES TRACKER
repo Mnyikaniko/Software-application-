@@ -3,7 +3,7 @@
 #include <string>
 using namespace std;
 
-struct Expense {
+struct Expense{
     string description;
     double amount;
 };
