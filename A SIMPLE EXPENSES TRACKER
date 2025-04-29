@@ -1,0 +1,63 @@
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+struct Expense {
+    string description;
+    double amount;
+};
+
+int main() {
+    vector<Expense> expenses;
+    int choice;
+    string desc;
+    double amt;
+    double total = 0;
+
+    do {
+        cout << "\n=== Expense Tracker ===\n";
+        cout << "1. Add Expense\n";
+        cout << "2. View Expenses\n";
+        cout << "3. Total Amount Spent\n";
+        cout << "4. Exit\n";
+        cout << "Choose an option: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1:
+                cout << "Enter description: ";
+                cin.ignore();
+                getline(cin, desc);
+                cout << "Enter amount: ";
+                cin >> amt;
+                expenses.push_back({desc, amt});
+                cout << "Expense added.\n";
+                break;
+
+            case 2:
+                cout << "\n--- All Expenses ---\n";
+                for (int i = 0; i < expenses.size(); i++) {
+                    cout << i + 1 << ". " << expenses[i].description << " - $" << expenses[i].amount << "\n";
+                }
+                break;
+
+            case 3:
+                total = 0;
+                for (const auto& e : expenses)
+                    total += e.amount;
+                cout << "Total spent: $" << total << "\n";
+                break;
+
+            case 4:
+                cout << "Exiting Expense Tracker.\n";
+                break;
+
+            default:
+                cout << "Invalid choice.\n";
+        }
+
+    } while (choice != 4);
+
+    return 0;
+}
