@@ -24,7 +24,7 @@ void bookSeat(vector<Seat>& seats) {
     string name;
 
     cout << "Enter seat number to book (1–" << TOTAL_SEATS << "): ";
-    cin >> seatNum;
+    cin >> seatNum; 
 
     if (seatNum < 1 || seatNum > TOTAL_SEATS) {
         cout << "Invalid seat number.\n";
