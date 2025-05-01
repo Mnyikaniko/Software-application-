@@ -41,7 +41,7 @@ void bookSeat(vector<Seat>& seats) {
     getline(cin, name);
 
     seats[seatNum - 1].isBooked = true;
-    seats[seatNum - 1].passengerName = name;
+    seats[seatNum - 1].passengerName = name; 
 
     cout << "Seat booked successfully for " << name << ". Fare: TSh " << TICKET_PRICE << endl;
 }
