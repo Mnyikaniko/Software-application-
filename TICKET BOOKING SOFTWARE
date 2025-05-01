@@ -1,0 +1,88 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+const int TOTAL_SEATS = 10;
+const double TICKET_PRICE = 5000.0;
+
+struct Seat {
+    int seatNumber;
+    bool isBooked;
+    string passengerName;
+};
+
+void displaySeats(const vector<Seat>& seats) {
+    cout << "\n=== Available Seats ===\n";
+    for (const auto& seat : seats) {
+        cout << "Seat " << seat.seatNumber << ": " 
+             << (seat.isBooked ? "Booked" : "Available") << endl;
+    }
+}
+
+void bookSeat(vector<Seat>& seats) {
+    int seatNum;
+    string name;
+
+    cout << "Enter seat number to book (1–" << TOTAL_SEATS << "): ";
+    cin >> seatNum;
+
+    if (seatNum < 1 || seatNum > TOTAL_SEATS) {
+        cout << "Invalid seat number.\n";
+        return;
+    }
+
+    if (seats[seatNum - 1].isBooked) {
+        cout << "Seat already booked.\n";
+        return;
+    }
+
+    cin.ignore();
+    cout << "Enter passenger name: ";
+    getline(cin, name);
+
+    seats[seatNum - 1].isBooked = true;
+    seats[seatNum - 1].passengerName = name;
+
+    cout << "Seat booked successfully for " << name << ". Fare: TSh " << TICKET_PRICE << endl;
+}
+
+void showBookings(const vector<Seat>& seats) {
+    cout << "\n=== Booked Tickets ===\n";
+    for (const auto& seat : seats) {
+        if (seat.isBooked) {
+            cout << "Seat " << seat.seatNumber << " - " << seat.passengerName 
+                 << " (Fare: TSh " << TICKET_PRICE << ")\n";
+        }
+    }
+}
+
+int main() {
+    vector<Seat> seats(TOTAL_SEATS);
+
+    for (int i = 0; i < TOTAL_SEATS; i++) {
+        seats[i].seatNumber = i + 1;
+        seats[i].isBooked = false;
+    }
+
+    int choice;
+    do {
+        cout << "\n=== Bus Ticket Booking System ===\n";
+        cout << "1. View Available Seats\n";
+        cout << "2. Book a Seat\n";
+        cout << "3. Show Bookings\n";
+        cout << "4. Exit\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1: displaySeats(seats); break;
+            case 2: bookSeat(seats); break;
+            case 3: showBookings(seats); break;
+            case 4: cout << "Thank you for using the system!\n"; break;
+            default: cout << "Invalid choice.\n";
+        }
+
+    } while (choice != 4);
+
+    return 0;
+}
