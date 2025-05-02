@@ -1,0 +1,59 @@
+#include <iostream>
+using namespace std;
+
+struct Date {
+    int day, month, year;
+};
+
+// Function to check for leap year
+bool isLeapYear(int year) {
+    return ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0);
+}
+
+// Function to get number of days in a month
+int getDaysInMonth(int month, int year) {
+    switch (month) {
+        case 1: case 3: case 5: case 7: case 8: case 10: case 12: return 31;
+        case 4: case 6: case 9: case 11: return 30;
+        case 2: return isLeapYear(year) ? 29 : 28;
+        default: return 0;
+    }
+}
+
+void calculateAge(Date birth, Date current) {
+    int day, month, year;
+
+    // Borrow days if needed
+    if (current.day < birth.day) {
+        current.month -= 1;
+        current.day += getDaysInMonth((current.month == 0 ? 12 : current.month), current.year);
+    }
+
+    day = current.day - birth.day;
+
+    // Borrow months if needed
+    if (current.month < birth.month) {
+        current.year -= 1;
+        current.month += 12;
+    }
+
+    month = current.month - birth.month;
+    year = current.year - birth.year;
+
+    cout << "\nYour age is: " << year << " years, " << month << " months, and " << day << " days.\n";
+}
+
+int main() {
+    Date birth, current;
+
+    cout << "=== Age Calculator ===\n";
+    cout << "Enter your birth date (dd mm yyyy): ";
+    cin >> birth.day >> birth.month >> birth.year;
+
+    cout << "Enter current date (dd mm yyyy): ";
+    cin >> current.day >> current.month >> current.year;
+
+    calculateAge(birth, current);
+
+    return 0;
+}
