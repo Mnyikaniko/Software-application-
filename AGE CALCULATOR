@@ -5,7 +5,7 @@ struct Date {
     int day, month, year;
 };
 
-// Function to check for leap year
+// Function to check for leap
 bool isLeapYear(int year) {
     return ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0);
 }
