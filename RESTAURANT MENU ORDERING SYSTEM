@@ -1,0 +1,64 @@
+#include <iostream>
+#include <iomanip> // for setprecision to format money
+using namespace std;
+
+// Number of menu items
+const int MENU_SIZE = 5;
+
+// Structure to hold item name and price
+struct MenuItem {
+    string name;
+    double price;
+};
+
+int main() {
+    // Initialize menu items
+    MenuItem menu[MENU_SIZE] = {
+        {"1. Chicken & Chips", 7000},
+        {"2. Rice & Beef", 5000},
+        {"3. Ugali & Fish", 6000},
+        {"4. Soda", 1500},
+        {"5. Juice", 2000}
+    };
+
+    int choice, quantity;
+    double total = 0; // total bill
+
+    cout << "=== Welcome to My Restaurant ===\n";
+
+    do {
+        // Display the menu
+        cout << "\nMenu:\n";
+        for (int i = 0; i < MENU_SIZE; i++) {
+            cout << menu[i].name << " - TSh " 
+                 << fixed << setprecision(0) << menu[i].price << endl;
+        }
+
+        // Ask user to choose an item
+        cout << "\nEnter item number to order (0 to finish): ";
+        cin >> choice;
+
+        // Process valid choices
+        if (choice >= 1 && choice <= MENU_SIZE) {
+            cout << "Enter quantity: ";
+            cin >> quantity;
+
+            // Add cost to total
+            total += menu[choice - 1].price * quantity;
+
+            cout << "Added to order.\n";
+        } 
+        // Handle invalid choices
+        else if (choice != 0) {
+            cout << "Invalid choice.\n";
+        }
+
+    } while (choice != 0); // Loop until user finishes
+
+    // Display final total
+    cout << "\n=== Your Total Bill ===\n";
+    cout << "Total: TSh " << fixed << setprecision(0) << total << "\n";
+    cout << "Thank you for ordering!\n";
+
+    return 0;
+}
