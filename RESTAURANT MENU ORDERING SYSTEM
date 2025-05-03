@@ -1,5 +1,5 @@
 #include <iostream>
-#include <iomanip> // for setprecision to format 
+#include <iomanip> // for setprecision to 
 using namespace std;
 
 // Number of menu items
