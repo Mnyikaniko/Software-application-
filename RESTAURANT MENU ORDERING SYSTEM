@@ -1,5 +1,5 @@
 #include <iostream>
-#include <iomanip> // for setprecision to format money
+#include <iomanip> // for setprecision to format 
 using namespace std;
 
 // Number of menu items
