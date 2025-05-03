@@ -1,5 +1,5 @@
 #include <iostream>
-#include <iomanip> // for 
+#include <iomanip>
 using namespace std;
 
 // Number of menu items
