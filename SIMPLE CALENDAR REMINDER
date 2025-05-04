@@ -3,7 +3,7 @@
 #include <string>
 using namespace std;
 
-// Structure to hold 
+// Structure to 
 struct Reminder {
     int day, month, year;
     string note;
