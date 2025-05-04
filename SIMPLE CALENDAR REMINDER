@@ -1,0 +1,57 @@
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+// Structure to hold reminder information
+struct Reminder {
+    int day, month, year;
+    string note;
+};
+
+int main() {
+    vector<Reminder> reminders; // to store multiple reminders
+    int choice;
+
+    do {
+        cout << "\n=== Calendar Reminder ===\n";
+        cout << "1. Add a Reminder\n";
+        cout << "2. View All Reminders\n";
+        cout << "3. Exit\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        if (choice == 1) {
+            // Add new reminder
+            Reminder r;
+            cout << "Enter date (DD MM YYYY): ";
+            cin >> r.day >> r.month >> r.year;
+            cin.ignore(); // clear newline from input buffer
+            cout << "Enter your note: ";
+            getline(cin, r.note);
+            reminders.push_back(r);
+            cout << "Reminder added!\n";
+
+        } else if (choice == 2) {
+            // Display all reminders
+            if (reminders.empty()) {
+                cout << "No reminders found.\n";
+            } else {
+                cout << "\n--- Saved Reminders ---\n";
+                for (int i = 0; i < reminders.size(); i++) {
+                    cout << i + 1 << ". " << reminders[i].day << "/" 
+                         << reminders[i].month << "/" << reminders[i].year
+                         << " - " << reminders[i].note << endl;
+                }
+            }
+
+        } else if (choice == 3) {
+            cout << "Goodbye!\n";
+        } else {
+            cout << "Invalid choice.\n";
+        }
+
+    } while (choice != 3);
+
+    return 0;
+}
