@@ -16,7 +16,7 @@ void displayTime() {
         int minute = localTime->tm_min;
         int second = localTime->tm_sec;
 
-        // Clear screen (cleaner)
+        // Clear screen
         system("cls");
 
         // Display digital clock
