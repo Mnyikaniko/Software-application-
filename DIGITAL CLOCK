@@ -8,7 +8,7 @@ using namespace std;
 
 void displayTime() {
     while (true) {
-        // Get current system 
+        // Get current 
         time_t now = time(0);
         tm *localTime = localtime(&now);
 
