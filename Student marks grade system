@@ -1,0 +1,59 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string studentName;
+    int subjects;
+    float mark, total = 0, average;
+
+    cout << "=== Student Marks Grading System ===\n";
+    
+    // Get student info
+    cout << "Enter student name: ";
+    getline(cin, studentName);
+
+    // Get number of subjects
+    cout << "Enter number of subjects: ";
+    cin >> subjects;
+
+    // Loop through all subjects to collect marks
+    for (int i = 1; i <= subjects; i++) {
+        cout << "Enter marks for subject " << i << ": ";
+        cin >> mark;
+
+        // Check for valid marks
+        if (mark < 0 || mark > 100) {
+            cout << "Invalid mark. Please enter between 0–100.\n";
+            i--; // repeat this subject input
+            continue;
+        }
+
+        total += mark;
+    }
+
+    // Calculate average
+    average = total / subjects;
+
+    // Determine grade
+    char grade;
+    if (average >= 90)
+        grade = 'A';
+    else if (average >= 75)
+        grade = 'B';
+    else if (average >= 60)
+        grade = 'C';
+    else if (average >= 45)
+        grade = 'D';
+    else
+        grade = 'F';
+
+    // Display results
+    cout << "\n=== Report ===\n";
+    cout << "Student: " << studentName << endl;
+    cout << "Total Marks: " << total << "/" << (subjects * 100) << endl;
+    cout << "Average: " << average << "%" << endl;
+    cout << "Grade: " << grade << endl;
+
+    return 0;
+}
