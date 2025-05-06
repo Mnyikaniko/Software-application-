@@ -9,7 +9,7 @@ int main() {
 
     cout << "=== Student Marks Grading System ===\n";
     
-    // Get 
+    // 
     cout << "Enter student name: ";
     getline(cin, studentName);
 
