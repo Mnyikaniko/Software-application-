@@ -12,7 +12,7 @@ int main() {
     cout << "Enter student name: ";
     getline(cin, studentName);
 
-    // Get number of 
+    // Get number 
     cout << "Enter number of subjects: ";
     cin >> subjects;
 
