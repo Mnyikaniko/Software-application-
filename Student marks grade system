@@ -11,8 +11,6 @@ int main() {
     
     cout << "Enter student name: ";
     getline(cin, studentName);
-
-    // 
     cout << "Enter number of subjects: ";
     cin >> subjects;
 
