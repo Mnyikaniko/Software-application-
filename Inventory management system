@@ -1,0 +1,83 @@
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+// Structure for an inventory item
+struct Item {
+    string name;
+    int quantity;
+    double price;
+};
+
+int main() {
+    vector<Item> inventory; // store all items
+    int choice;
+
+    do {
+        // Menu options
+        cout << "\n=== Inventory Management System ===\n";
+        cout << "1. Add Item\n";
+        cout << "2. View All Items\n";
+        cout << "3. Search Item\n";
+        cout << "4. Exit\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        if (choice == 1) {
+            // Add new item
+            Item newItem;
+            cout << "Enter item name: ";
+            cin.ignore(); // clear input buffer
+            getline(cin, newItem.name);
+            cout << "Enter quantity: ";
+            cin >> newItem.quantity;
+            cout << "Enter price: ";
+            cin >> newItem.price;
+            inventory.push_back(newItem);
+            cout << "Item added successfully!\n";
+
+        } else if (choice == 2) {
+            // View all items
+            if (inventory.empty()) {
+                cout << "No items in inventory.\n";
+            } else {
+                cout << "\n--- Inventory List ---\n";
+                for (int i = 0; i < inventory.size(); i++) {
+                    cout << i + 1 << ". Name: " << inventory[i].name
+                         << ", Quantity: " << inventory[i].quantity
+                         << ", Price: " << inventory[i].price << endl;
+                }
+            }
+
+        } else if (choice == 3) {
+            // Search for an item by name
+            string searchName;
+            bool found = false;
+            cout << "Enter item name to search: ";
+            cin.ignore();
+            getline(cin, searchName);
+
+            for (Item item : inventory) {
+                if (item.name == searchName) {
+                    cout << "Found: " << item.name << " | Quantity: " 
+                         << item.quantity << " | Price: " << item.price << endl;
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found) {
+                cout << "Item not found.\n";
+            }
+
+        } else if (choice == 4) {
+            cout << "Exiting Inventory System. Goodbye!\n";
+        } else {
+            cout << "Invalid choice.\n";
+        }
+
+    } while (choice != 4);
+
+    return 0;
+}
