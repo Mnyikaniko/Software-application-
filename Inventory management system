@@ -3,7 +3,7 @@
 #include <string>
 using namespace std;
 
-// Structure for an inventory item
+// Structure for an inventory 
 struct Item {
     string name;
     int quantity;
