@@ -28,7 +28,7 @@ int main() {
             endTime = system_clock::now();
             running = false;
 
-            // Calculate elapsed time 
+            // Calculate elapsed 
             duration<double> elapsed = endTime - startTime;
             cout << "Timer stopped.\n";
             cout << "Elapsed time: " << elapsed.count() << " seconds\n";
