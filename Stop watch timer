@@ -1,0 +1,49 @@
+#include <iostream>
+#include <chrono>  // for high-resolution timing
+#include <thread>  // for sleep
+using namespace std;
+using namespace std::chrono;
+
+int main() {
+    int choice;
+    bool running = false;
+    system_clock::time_point startTime, endTime;
+
+    do {
+        cout << "\n=== Stopwatch Timer ===\n";
+        cout << "1. Start Timer\n";
+        cout << "2. Stop Timer\n";
+        cout << "3. Exit\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        if (choice == 1) {
+            // Start timer
+            startTime = system_clock::now();
+            running = true;
+            cout << "Timer started...\n";
+
+        } else if (choice == 2 && running) {
+            // Stop timer
+            endTime = system_clock::now();
+            running = false;
+
+            // Calculate elapsed time in seconds
+            duration<double> elapsed = endTime - startTime;
+            cout << "Timer stopped.\n";
+            cout << "Elapsed time: " << elapsed.count() << " seconds\n";
+
+        } else if (choice == 2 && !running) {
+            cout << "Timer has not been started yet!\n";
+
+        } else if (choice == 3) {
+            cout << "Exiting stopwatch...\n";
+
+        } else {
+            cout << "Invalid choice.\n";
+        }
+
+    } while (choice != 3);
+
+    return 0;
+}
