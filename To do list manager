@@ -24,7 +24,7 @@ int main() {
         cin >> choice;
 
         if (choice == 1) {
-            // Add new task
+            // Add new 
             Task newTask;
             cout << "Enter task description: ";
             cin.ignore();
