@@ -3,7 +3,7 @@
 #include <string>
 using namespace std;
 
-// Structure to hold a task
+// Structure to hold a 
 struct Task {
     string description;
     bool completed;
