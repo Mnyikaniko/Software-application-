@@ -46,7 +46,7 @@ int main() {
             }
 
         } else if (choice == 3) {
-            // Mark a task as completed
+            // Mark a task as 
             int taskNum;
             cout << "Enter task number to mark as done: ";
             cin >> taskNum;
