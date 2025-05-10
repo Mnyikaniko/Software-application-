@@ -1,0 +1,70 @@
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+// Structure to hold a task
+struct Task {
+    string description;
+    bool completed;
+};
+
+int main() {
+    vector<Task> todoList;
+    int choice;
+
+    do {
+        // Menu
+        cout << "\n=== To-Do List Manager ===\n";
+        cout << "1. Add Task\n";
+        cout << "2. View Tasks\n";
+        cout << "3. Mark Task as Completed\n";
+        cout << "4. Exit\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        if (choice == 1) {
+            // Add new task
+            Task newTask;
+            cout << "Enter task description: ";
+            cin.ignore();
+            getline(cin, newTask.description);
+            newTask.completed = false;
+            todoList.push_back(newTask);
+            cout << "Task added!\n";
+
+        } else if (choice == 2) {
+            // View all tasks
+            if (todoList.empty()) {
+                cout << "No tasks in the list.\n";
+            } else {
+                cout << "\n--- Your Tasks ---\n";
+                for (int i = 0; i < todoList.size(); i++) {
+                    cout << i + 1 << ". " << todoList[i].description;
+                    cout << " [" << (todoList[i].completed ? "Done" : "Pending") << "]\n";
+                }
+            }
+
+        } else if (choice == 3) {
+            // Mark a task as completed
+            int taskNum;
+            cout << "Enter task number to mark as done: ";
+            cin >> taskNum;
+
+            if (taskNum >= 1 && taskNum <= todoList.size()) {
+                todoList[taskNum - 1].completed = true;
+                cout << "Task marked as completed.\n";
+            } else {
+                cout << "Invalid task number.\n";
+            }
+
+        } else if (choice == 4) {
+            cout << "Goodbye!\n";
+        } else {
+            cout << "Invalid choice.\n";
+        }
+
+    } while (choice != 4);
+
+    return 0;
+}
