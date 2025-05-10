@@ -34,7 +34,7 @@ int main() {
             cout << "Task added!\n";
 
         } else if (choice == 2) {
-            // View all 
+            // View 
             if (todoList.empty()) {
                 cout << "No tasks in the list.\n";
             } else {
