@@ -11,7 +11,7 @@ struct Contact {
     string email;
 };
 
-// Function to add a new contact
+// Function to add a new contac
 void addContact() {
     Contact contact;
     cout << "Enter Name: ";
