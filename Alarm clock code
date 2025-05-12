@@ -16,7 +16,7 @@ int main() {
 
     while (true) {
         time_t now = time(0);
-        tm *ltm = localtime(&now);
+        tm *ltm = localtime(&now); //
 
         int currentHour = ltm->tm_hour;
         int currentMinute = ltm->tm_min;
