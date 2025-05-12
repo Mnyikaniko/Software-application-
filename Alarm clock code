@@ -14,7 +14,7 @@ int main() {
 
     cout << "Alarm is set for " << alarmHour << ":" << (alarmMinute < 10 ? "0" : "") << alarmMinute << "\n";
 
-    while (true) {
+    while (true) {  //
         time_t now = time(0);
         tm *ltm = localtime(&now); //
 
