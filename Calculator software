@@ -1,0 +1,41 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    float weight, height, bmi;
+
+    cout << "=== BMI Calculator ===\n";
+
+    // Input weight in kilograms
+    cout << "Enter your weight (kg): ";
+    cin >> weight;
+
+    // Input height in meters
+    cout << "Enter your height (meters): ";
+    cin >> height;
+
+    // Check if height is valid to avoid division by zero
+    if (height <= 0) {
+        cout << "Invalid height entered.\n";
+        return 1;
+    }
+
+    // Calculate BMI
+    bmi = weight / (height * height);
+
+    // Display BMI
+    cout << "Your BMI is: " << bmi << endl;
+
+    // Classify BMI
+    if (bmi < 18.5) {
+        cout << "Category: Underweight\n";
+    } else if (bmi < 25) {
+        cout << "Category: Normal weight\n";
+    } else if (bmi < 30) {
+        cout << "Category: Overweight\n";
+    } else {
+        cout << "Category: Obese\n";
+    }
+
+    return 0;
+}
