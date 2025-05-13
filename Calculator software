@@ -10,7 +10,7 @@ int main() {
     cout << "Enter your weight (kg): ";
     cin >> weight;
 
-    // Input height in 
+    // Input height 
     cout << "Enter your height (meters): ";
     cin >> height;
 
