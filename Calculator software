@@ -6,7 +6,7 @@ int main() {
 
     cout << "=== BMI Calculator ===\n";
 
-    // Input weight in 
+    
     cout << "Enter your weight (kg): ";
     cin >> weight;
 
