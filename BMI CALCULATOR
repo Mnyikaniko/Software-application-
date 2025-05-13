@@ -1,4 +1,4 @@
-k#include <iostream>//calculator 
+#include <iostream>//calculator 
 using namespace std; 
 
 int main() {
