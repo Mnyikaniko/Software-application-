@@ -1,4 +1,4 @@
-#include <iostream>//calculator
+#include <iostream>//calculat
 using namespace std; 
 
 int main() {
