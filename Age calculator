@@ -23,7 +23,7 @@ int main() {
     // Calculate age
     age = currentYear - birthYear;
 
-    // Display
+    
     cout << "You are " << age << " years old.\n";
 
     return 0;
