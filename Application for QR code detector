@@ -12,7 +12,7 @@ int main() {
 
 
 
-    if (qr != nullptr) {
+    if (qr != nullptr) {  
 
         for (int y = 0; y < qr->width; y++) {
 
