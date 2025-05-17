@@ -5,4 +5,4 @@ public class Welcome
      
      System.out.println("hello ");
     }
-  } //java script 
+  } //java script welcome 
