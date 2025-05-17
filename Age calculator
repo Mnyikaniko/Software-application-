@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int birthYear, currentYear, age;
+
+    cout << "=== Age Calculator ===\n";
+
+    // Input birth year
+    cout << "Enter your birth year: ";
+    cin >> birthYear;
+
+    // Input current year
+    cout << "Enter the current year: ";
+    cin >> currentYear;
+
+    // Check for valid years
+    if (birthYear > currentYear || birthYear < 1900) {
+        cout << "Invalid years entered.\n";
+        return 1;
+    }
+
+    // Calculate age
+    age = currentYear - birthYear;
+
+    // Display result
+    cout << "You are " << age << " years old.\n";
+
+    return 0;
+}
