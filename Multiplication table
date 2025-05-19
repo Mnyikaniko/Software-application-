@@ -1,0 +1,21 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int number;
+
+    cout << "=== Multiplication Table Generator ===\n";
+
+    // Input number for the multiplication table
+    cout << "Enter a number: ";
+    cin >> number;
+
+    cout << "\nMultiplication Table for " << number << ":\n";
+
+    // Loop to generate and display the table
+    for (int i = 1; i <= 10; i++) {
+        cout << number << " x " << i << " = " << number * i << endl;
+    }
+
+    return 0;
+}
