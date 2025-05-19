@@ -12,7 +12,7 @@ int main() {
 
     cout << "\nMultiplication Table for " << number << ":\n";
 
-    // Loop to generate and display
+    // Loop to generate and 
     for (int i = 1; i <= 10; i++) {
         cout << number << " x " << i << " = " << number * i << endl;
     }
