@@ -1,4 +1,4 @@
-#include <iostream>//a simple stopwatch 
+#include <iostream>//a simple 
 #include <ctime>
 using namespace std;
 
