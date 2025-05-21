@@ -19,7 +19,7 @@ int main() {
         tm *ltm = localtime(&now); //
 
         int currentHour = ltm->tm_hour;
-        int currentMinute = ltm->tm_min;
+        int currentMinute = ltm->tm_min;//
 
         if (currentHour == alarmHour && currentMinute == alarmMinute) {
             cout << "\n*** Alarm Ringing! Wake up! ***\n";
