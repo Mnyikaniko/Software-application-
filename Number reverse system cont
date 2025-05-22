@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int number, reversed = 0, remainder;
+
+    cout << "=== Number Reverser ===\n";
+
+    // Input the number to reverse
+    cout << "Enter an integer: ";
+    cin >> number;
+
+    int original = number;  // Store original number for display
+
+    // Reverse the digits
