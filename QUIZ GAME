@@ -1,5 +1,5 @@
 #include <iostream>         
-using namespace std;    
+using namespace std;       
 
 int askQuestion(string question, string a, string b, string c, string d, char correctAnswer) {
     char answer; //commen
