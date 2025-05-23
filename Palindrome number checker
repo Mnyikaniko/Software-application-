@@ -19,7 +19,7 @@ int main() {
         number = number / 10;
     }
 
-    // Check if original equals reversed
+    // Check if original equals 
     if (original == reversed) {
         cout << original << " is a palindrome.\n";
     } else {
