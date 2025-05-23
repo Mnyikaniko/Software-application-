@@ -2,7 +2,7 @@
 using namespace std;    
 
 int askQuestion(string question, string a, string b, string c, string d, char correctAnswer) {
-    char answer; //comment
+    char answer; //commen
     cout << "\n" << question << "\n";
     cout << "A. " << a << "\n";
     cout << "B. " << b << "\n";
