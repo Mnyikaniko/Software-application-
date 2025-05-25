@@ -1,0 +1,21 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int number, i;
+    bool isPrime = true;
+
+    cout << "=== Prime Number Checker ===\n";
+
+    // Input number
+    cout << "Enter a positive integer: ";
+    cin >> number;
+
+    // Handle edge cases
+    if (number <= 1) {
+        cout << number << " is not a prime number.\n";
+        return 0;
+    }
+
+    // Check for factors from 2 to number/2
+    
