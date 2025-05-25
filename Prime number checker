@@ -1,0 +1,10 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int number, i;
+    bool isPrime = true;
+
+    cout << "=== Prime Number Checker ===\n";
+
+  
