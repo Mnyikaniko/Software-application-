@@ -7,7 +7,7 @@ int main() {
 
     cout << "=== Simple Calculator ===\n";
 
-    // Input numbers
+    // Input 
     cout << "Enter first number: ";
     cin >> num1;
 
