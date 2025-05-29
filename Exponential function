@@ -3,7 +3,7 @@ using namespace std;
 
 int main() {
     int base, exponent;
-    long long result = 1; // Use long long for larger 
+    long long result = 1; // Use long long for 
 
     cout << "=== Power Calculator (x^n) ===\n";
 
