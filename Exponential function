@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int base, exponent;
+    long long result = 1; // Use long long for larger results
+
+    cout << "=== Power Calculator (x^n) ===\n";
+
+    // Input base and exponent
+    cout << "Enter base number (x): ";
+    cin >> base;
+
+    cout << "Enter exponent (n): ";
+    cin >> exponent;
+
+    // Calculate power using loop
+    for (int i = 1; i <= exponent; i++) {
+        result *= base;
+    }
+
+    // Display result
+    cout << base << "^" << exponent << " = " << result << endl;
+
+    return 0;
+}
