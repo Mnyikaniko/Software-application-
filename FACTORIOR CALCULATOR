@@ -3,7 +3,7 @@ using namespace std;
 
 int main() {
     int number;
-    unsigned long long factorial = 1; // Use unsigned long 
+    unsigned long long factorial = 1; // Use unsigned 
 
     cout << "=== Factorial Calculator ===\n";
 
