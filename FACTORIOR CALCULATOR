@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int number;
+    unsigned long long factorial = 1; // Use unsigned long long for large factorials
+
+    cout << "=== Factorial Calculator ===\n";
+
+    // Get user input
+    cout << "Enter a non-negative integer: ";
+    cin >> number;
+
+    // Validate input
+    if (number < 0) {
+        cout << "Error: Factorial of a negative number doesn't exist.\n";
+        return 1;
+    }
+
+    // Calculate factorial using a loop
+    for (int i = 1; i <= number; i++) {
+        factorial *= i;
+    }
+
+    // Output result
+    cout << "Factorial of " << number << " is: " << factorial << endl;
+
+    return 0;
+}
