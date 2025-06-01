@@ -6,7 +6,7 @@ private:
     double balance;
 
 public:
-    BankAccount() { balance = 0; } // Initialize balan
+    BankAccount() { balance = 0; } // Initialize 
     void deposit(double amount) {
         if (amount > 0) {
             balance += amount;
