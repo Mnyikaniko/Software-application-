@@ -8,7 +8,7 @@ int main() {
     int alarmHour, alarmMinute;
     cout << "=== Alarm Clock ===\n";
     cout << "Set Alarm Hour (0-23): ";
-    cin >> alarmHour;
+    cin >>
     cout << "Set Alarm Minute (0-59): ";
     cin >> alarmMinute;
 
